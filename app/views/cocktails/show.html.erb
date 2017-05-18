@@ -1,2 +1,25 @@
 <h1>Cocktails#show</h1>
-<p>Find me in app/views/cocktails/show.html.erb</p>
+<ul>
+  <li>
+    <p>
+      <strong>Name: </strong>
+      <%= @cocktail.name %>
+    </p>
+  </li>
+  <li>
+    <p><strong>Ingredients: </strong></p>
+    <ul>
+      <% @cocktail.ingredients.each do |ingredient| %>
+        <% dose = Dose.where(cocktail: @cocktail, ingredient: ingredient)[0] %>
+        <li><%= ingredient.name %> - <%= link_to "delete", delete_dose_path(dose), method: :delete %></li>
+      <% end %>
+    </ul>
+  </li>
+  <li>
+    <%= link_to "add ingredient", new_cocktail_dose_path(@cocktail) %>
+  </li>
+  <li>
+    <%= link_to "Index", cocktails_path %>
+  </li>
+</ul>
+

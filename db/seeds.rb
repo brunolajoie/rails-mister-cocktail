@@ -8,27 +8,40 @@
 
 Cocktail.destroy_all
 Ingredient.destroy_all
+Dose.destroy_all
 
-Cocktail.create(name: "Mojito")
-Cocktail.create(name: "TGV")
+Ingredient.create!(name: "lemon")
+Ingredient.create!(name: "ice")
+Ingredient.create!(name: "tekila")
+Ingredient.create!(name: "gin")
+Ingredient.create!(name: "vodka")
+Ingredient.create!(name: "mint leaves")
+lemon = Ingredient.where(name: "lemon").first
+ice = Ingredient.where(name: "ice").first
+tekila = Ingredient.where(name: "tekila").first
+gin = Ingredient.where(name: "gin").first
+vodka = Ingredient.where(name: "vodka").first
+mint = Ingredient.where(name: "mint leaves").first
 
-Ingredient.create(name: "lemon")
-Ingredient.create(name: "ice")
-Ingredient.create(name: "tekila")
-Ingredient.create(name: "gin")
-Ingredient.create(name: "vodka")
-Ingredient.create(name: "ice")
-Ingredient.create(name: "mint leaves")
+mojito = Cocktail.new(name: "Mojito")
+tgv = Cocktail.new(name: "TGV")
+water = Cocktail.new(name:"Verre d'eau")
+mojito.save
+tgv.save
+water.save
 
-mojito = Cocktail.where(name: "Mojito")
-tgv = Cocktail.where(name: "TGV")
-lemon = Ingredient.where(name: "lemon")
-ice = Ingredient.where(name: "ice")
-tekila = Ingredient.where(name: "tekila")
-gin = Ingredient.where(name: "gin")
-vodka = Ingredient.where(name: "vodka")
-ice = Ingredient.where(name: "ice")
-mint = Ingredient.where(name: "mint leaves")
+
+dose_1 = Dose.create!(cocktail: mojito, ingredient: mint, description: "2")
+dose_2 = Dose.create!(cocktail: mojito, ingredient: ice, description: "2")
+dose_3 = Dose.create!(cocktail: mojito, ingredient: lemon, description: "2")
+
+dose_4 = Dose.create!(cocktail: tgv, ingredient: tekila, description: "2")
+dose_5 = Dose.create!(cocktail: tgv, ingredient: gin, description: "2")
+dose_6 = Dose.create!(cocktail: tgv, ingredient: vodka, description: "2")
+dose_7 = Dose.create!(cocktail: tgv, ingredient: ice, description: "2")
+
+dose_8 = Dose.create!(cocktail: water, ingredient: ice, description: "8")
+
 
 
 
