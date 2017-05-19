@@ -1,9 +1,9 @@
+<% content_for(:title_tag) do %>
+  Index
+<% end %>
 
 <div class="container">
-  <h1 class="text-center">Our Cocktails</h1>
-  <div class="text-center">
-    <%= link_to "Add a coktail", new_cocktail_path , class: "btn btn-primary" %>
-  </div>
+  <h1 class="text-center">Bruno's cocktails</h1>
   <hr>
   <div class="row">
     <% @cocktails.each do |cocktail| %>
