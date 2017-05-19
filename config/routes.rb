@@ -6,13 +6,6 @@ Rails.application.routes.draw do
   end
   delete "doses/:id", to: "doses#destroy", as: 'dose'
   root to: "cocktails#index"
+  mount Attachinary::Engine => "/attachinary"
 end
 
-#            Prefix Verb   URI Pattern                                 Controller#Action
-#    cocktail_doses POST   /cocktails/:cocktail_id/doses(.:format)     doses#create
-# new_cocktail_dose GET    /cocktails/:cocktail_id/doses/new(.:format) doses#new
-#         cocktails GET    /cocktails(.:format)                        cocktails#index
-#                   POST   /cocktails(.:format)                        cocktails#create
-#      new_cocktail GET    /cocktails/new(.:format)                    cocktails#new
-#          cocktail GET    /cocktails/:id(.:format)                    cocktails#show
-#                   DELETE /doses/:id(.:format)                        doses#destroy
