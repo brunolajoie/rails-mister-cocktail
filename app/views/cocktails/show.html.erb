@@ -11,7 +11,7 @@
     <ul>
       <% @cocktail.ingredients.each do |ingredient| %>
         <% dose = Dose.where(cocktail: @cocktail, ingredient: ingredient)[0] %>
-        <li><%= ingredient.name %> - <%= link_to "delete", delete_dose_path(dose), method: :delete %></li>
+        <li><%= ingredient.name %> - dose: <%= dose.description %> - <%= link_to "delete dose", dose_path(dose), method: :delete %></li>
       <% end %>
     </ul>
   </li>
